@@ -1,10 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
-import { AppSidebar } from "@/components/app-sidebar";
-import { cookies } from "next/headers";
-import { ThemeProvider } from "@/components/theme-provider";
+ import { ThemeProvider } from "@/components/theme-provider";
 import Navbar from "@/components/Navbar";
 import { WagmiWrapper } from "@/provider/wagmi-provider";  // Updated import
 import ResponsiveNavbar from "@/components/secondNavbar";
@@ -30,9 +27,7 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const cookieStore = await cookies();
-  const defaultOpen = cookieStore.get("sidebar:state")?.value === "true";
-
+  
   return (
     <html lang="en" className="h-full">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased h-full`}>
